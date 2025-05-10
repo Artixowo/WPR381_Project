@@ -1,2 +1,32 @@
-<h1>Upcoming Events</h1>
-<p>Check out what's happening soon!</p>
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+       <%- include('../partials/header.ejs') %> 
+      <h1>Upcoming Events</h1>
+      <p>Check out what's happening soon!</p> 
+      </p>
+            <% if (comEvent.length> 0) { %>
+                <% comEvent.forEach(event => { %>
+                    <div class="rounded-shadow-box">
+                        <h2>
+                            <%= event.title %>
+                        </h2>
+                        <img src="<%= event.image %>" alt="<%= event.title %>" >
+                        <ul>
+                            <li>Date: <%= event.date %>
+                            </li>
+                            <li>Location: <%= event.location %>
+                            </li>
+                            <li>Type of event: <%= event.eventType %>
+                            </li>
+                        </ul>
+                    </div>
+                <% }) %>
+            <% } %>
+      <%- include('../partials/footer.ejs') %> 
+    </body>
+</html>
+

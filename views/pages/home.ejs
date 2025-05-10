@@ -1,1 +1,35 @@
-<h1>Welcome to the Community Portal</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <h1>Welcome to the Community Portal</h1>
+    <div>
+        <p>
+            Here is a little preview to some of the events being hosted. For more please view the Events tab in the menu.
+        </p>
+            <% if (comEvent.length> 0) { %>
+                <% for (let i=0; i < 3 && i < comEvent.length; i++) { %>
+                    <div class="rounded-shadow-box">
+                        <h2>
+                            <%= comEvent[i].title %>
+                        </h2>
+                        <img src="<%= comEvent[i].image %>" alt="<%= comEvent[i].title %>" >
+                        <ul>
+                            <li>Date: <%= comEvent[i].date %>
+                            </li>
+                            <li>Location: <%= comEvent[i].location %>
+                            </li>
+                            <li>Type of event: <%= comEvent[i].eventType %>
+                            </li>
+                        </ul>
+                    </div>
+                <% } %>
+            <% } %>
+       
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
