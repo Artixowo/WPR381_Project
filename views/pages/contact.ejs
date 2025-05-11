@@ -1,19 +1,26 @@
 <%- include('../partials/header.ejs') %>
 
 <div class="page-contact container">
-  <h1 class="page-title">Contact Us</h1>
+  <h1 class="page-title">Get in Touch</h1>
+  <p class="contact-subtitle">We'd love to hear from you. Fill out the form below and we'll get back to you shortly.</p>
+
   <form action="/contact" method="POST" class="contact-form">
-    <label for="name">Name:</label>
-    <input required type="text" name="name" id="name" placeholder="Your name" />
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input required type="text" name="name" id="name" placeholder="John Doe" />
+    </div>
 
-    <label for="email">Email:</label>
-    <input required type="email" name="email" id="email" placeholder="Your email" />
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input required type="email" name="email" id="email" placeholder="john@example.com" />
+    </div>
 
-    <label for="message">Message:</label>
-    <textarea required name="message" id="message" rows="6" placeholder="Your message..."></textarea>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea required name="message" id="message" rows="6" placeholder="Your message..."></textarea>
+    </div>
 
-    <button type="submit" class="submit-btn">Send Message</button>
+    <button type="submit" class="submit-btn">Send Message ✉️</button>
   </form>
 </div>
-
 

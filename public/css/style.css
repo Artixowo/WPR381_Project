@@ -189,28 +189,87 @@
 }
 
 /* === CONTACT PAGE === */
-.page-contact .contact-form {
+.page-contact {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.page-contact .page-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.page-contact .contact-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.contact-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
-.page-contact .contact-form input,
-.page-contact .contact-form textarea {
-  padding: 10px;
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
-.page-contact .submit-btn {
-  padding: 10px 20px;
-  background: #007BFF;
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.submit-btn {
+  padding: 15px;
+  background: linear-gradient(135deg, #007BFF, #0056b3);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.page-contact .submit-btn:hover {
-  background-color: #0056b3;
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* === THANK YOU PAGE === */
