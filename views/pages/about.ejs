@@ -1,1 +1,16 @@
-<h1>About Us</h1>
+<%- include('../partials/header.ejs') %>
+
+<div class="page-about container">
+  <h1 class="page-title">About Us</h1>
+  <div class="about-cards">
+    <% team.forEach(member => { %>
+      <div class="about-card">
+        <h2><%= member.name %></h2>
+        <h4><%= member.role %></h4>
+        <p><%= member.bio %></p>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -171,3 +171,59 @@
   justify-content: flex-end;
   align-items: flex-end;
 }
+
+/* === ABOUT PAGE === */
+.page-about .about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.page-about .about-card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* === CONTACT PAGE === */
+.page-contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.page-contact .contact-form input,
+.page-contact .contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.page-contact .submit-btn {
+  padding: 10px 20px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.page-contact .submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* === THANK YOU PAGE === */
+.page-thank-you .back-home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.page-thank-you .submitted-info {
+  margin-top: 20px;
+  font-size: 1.1em;
+}

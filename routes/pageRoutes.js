@@ -2,6 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
+const path = require('path');
+
 const comEvents = [ {
     title: "Cape Town Music Festival",
     date: "2025-06-15",
@@ -128,19 +131,116 @@ const comEvents = [ {
     image: "/images/HIV.jpeg",
     eventType: "Health"
   }]
+
+const team = [
+  {
+    name: "Trent Evans",
+    role: "Frontend Developer",
+    bio: "Pending"
+  },
+  {
+    name: "Gito Martin",
+    role: "Frontend Devloper",
+    bio: "Pending"
+  },
+  {
+    name: "Petrus Pienaar",
+    role: "Backend Developer",
+    bio: "Pending"
+  },
+  {
+    name: "Matthew harris",
+    role: "Backend Devloper",
+    bio: "Pending"
+  }
+];
+
+
 router.get('/', (req, res) => {
+  res.render("pages/home",{ comEvent: comEvents })
+ 
 });
 
 router.get('/about', (req, res) => {
+ res.render('pages/about', { team });
 });
+
 
 router.get('/events', (req, res) => {
+  res.render('pages/events', { comEvent: comEvents });
 });
+
 
 router.get('/contact', (req, res) => {
+  res.render('pages/contact');
 });
 
+
+// Path to the data directory and JSON file
+const dataDir = path.join(__dirname, '../data');
+const filePath = path.join(dataDir, 'contact.json');
+
+// Ensure the directory exists
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+// Example contact route
+router.post('/contact', (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Check if all fields are filled
+  if (!name || !email || !message) {
+    return res.status(400).send("All fields are required.");
+  }
+
+  // Create a contact data object
+  const contactData = {
+    name,
+    email,
+    message,
+    date: new Date().toISOString() // You can store the date the message was submitted
+  };
+
+  // Check if the file exists, if not, create it with an empty array
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, JSON.stringify([], null, 2), 'utf8');
+  }
+
+  // Read the existing contact data from the file
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).send("Error reading the file.");
+    }
+
+    // If the file is empty or contains invalid JSON, initialize with an empty array
+    let existingData = [];
+    try {
+      existingData = JSON.parse(data);
+    } catch (e) {
+      console.error("Error parsing JSON, initializing with an empty array:", e);
+    }
+
+    // Add the new contact message to the existing data
+    existingData.push(contactData);
+
+    // Write the updated data back to the JSON file
+    fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf8', (err) => {
+      if (err) {
+        return res.status(500).send("Error writing to the file.");
+      }
+
+      console.log("New contact form submission saved:", contactData);
+
+      // Redirect to the thank-you page
+      res.redirect('/thankyou');
+    });
+  });
+});
+
+
 router.get('/thankyou', (req, res) => {
+  res.render("pages/thankyou")
 });
 
 module.exports = router;

@@ -1,7 +1,19 @@
-<h1>Contact Us</h1>
-<form method="POST" action="/contact">
-  <input type="text" name="name" placeholder="Your Name" required /><br />
-  <input type="email" name="email" placeholder="Your Email" required /><br />
-  <textarea name="message" placeholder="Your Message" required></textarea><br />
-  <button type="submit">Send</button>
-</form>
+<%- include('../partials/header.ejs') %>
+
+<div class="page-contact container">
+  <h1 class="page-title">Contact Us</h1>
+  <form action="/contact" method="POST" class="contact-form">
+    <label for="name">Name:</label>
+    <input required type="text" name="name" id="name" placeholder="Your name" />
+
+    <label for="email">Email:</label>
+    <input required type="email" name="email" id="email" placeholder="Your email" />
+
+    <label for="message">Message:</label>
+    <textarea required name="message" id="message" rows="6" placeholder="Your message..."></textarea>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+
+
