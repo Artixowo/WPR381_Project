@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const path = require('path');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const comEvents = [ {
     title: "Cape Town Music Festival",
@@ -176,6 +178,14 @@ router.get('/contact', (req, res) => {
 });
 
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
 // Path to the data directory and JSON file
 const dataDir = path.join(__dirname, '../data');
 const filePath = path.join(dataDir, 'contact.json');
@@ -223,6 +233,22 @@ router.post('/contact', (req, res) => {
 
     // Add the new contact message to the existing data
     existingData.push(contactData);
+
+    // Send an email notification
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Contact Form Submission Confirmation',
+      text: `Thank you for reaching out, ${name}! We have received your message and will get back to you shortly.`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log('Email error:', error);
+    } else {
+      console.log('Email sent:', info.response);
+    }
+  });
 
     // Write the updated data back to the JSON file
     fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf8', (err) => {
