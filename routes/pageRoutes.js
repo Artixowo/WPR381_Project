@@ -5,6 +5,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const { title } = require('process');
 require('dotenv').config();
 
 const comEvents = [ {
@@ -159,22 +160,22 @@ const team = [
 
 
 router.get('/', (req, res) => {
-  res.render("pages/home",{ comEvent: comEvents })
+  res.render("pages/home",{ comEvent: comEvents, title: 'Home' })
  
 });
 
 router.get('/about', (req, res) => {
- res.render('pages/about', { team });
+ res.render('pages/about', { team, title: 'About' });
 });
 
 
 router.get('/events', (req, res) => {
-  res.render('pages/events', { comEvent: comEvents });
+  res.render('pages/events', { comEvent: comEvents, title: 'Events' });
 });
 
 
 router.get('/contact', (req, res) => {
-  res.render('pages/contact');
+  res.render('pages/contact', {title: 'Contact'});
 });
 
 
