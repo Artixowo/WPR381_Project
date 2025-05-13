@@ -147,7 +147,7 @@ const team = [
     bio: "Pending"
   },
   {
-    name: "Petrus Pienaar",
+    name: "Pieter Pienaar",
     role: "Backend Developer",
     bio: "Pending"
   },
