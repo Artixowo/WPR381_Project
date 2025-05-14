@@ -23,7 +23,7 @@ All form submissions are stored in an in-memory array for demonstration purposes
 
 | Name           | Role                 |
 |----------------|----------------------|
-| Trent Evans    | Team Lead   Frontend |
+| Trent Evans    | Team Lead (Frontend) |
 | Gito Martin    | Frontend Developer   |
 | Petrus Pienaar | Backend Developer    |
 | Matthew Harris | Backend Developer    |
