@@ -139,22 +139,26 @@ const team = [
   {
     name: "Trent Evans",
     role: "Frontend Developer",
-    bio: "Pending"
+    bio: "Pending",
+    image: "/images/Trent.jpg"
   },
   {
     name: "Gito Martin",
-    role: "Frontend Devloper",
-    bio: "Pending"
+    role: "Frontend Developer",
+    bio: "I have no idea what to put here",
+    image: "/images/Gito.jpg"
   },
   {
     name: "Pieter Pienaar",
     role: "Backend Developer",
-    bio: "Pending"
+    bio: "Consistently Inconsistent",
+    image: "/images/Pieter.jpg"
   },
   {
-    name: "Matthew harris",
-    role: "Backend Devloper",
-    bio: "Pending"
+    name: "Matthew Harris",
+    role: "Backend Developer",
+    bio: "Pending",
+    image: "/images/Matthew.jpg"
   }
 ];
 
