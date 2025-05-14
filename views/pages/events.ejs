@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %> 
+    <h1 class="mainheading"><%= title %></h1>
+    <h1 class="center-text">Upcoming Events</h1>
+    <p class="center-text">Check out what's happening soon.</p>
+    <p class="center-text">Interested? Head over to the <a class="link-colour" href="/contact">Contact</a> page so we can quickly get in touch with you!</p>
 
-    </head>
-    <body>
-       <%- include('../partials/header.ejs') %> 
-      <h1 class="mainheading"><%= title %></h1>
-      <h1>Upcoming Events</h1>
-      <p>Check out what's happening soon!</p> 
-      </p>
-            <% if (comEvent.length> 0) { %>
-                <% comEvent.forEach(event => { %>
-                    <div class="rounded-shadow-box">
-                        <h2>
-                            <%= event.title %>
-                        </h2>
-                        <img src="<%= event.image %>" alt="<%= event.title %>" >
-                        <ul>
-                            <li>Date: <%= event.date %>
-                            </li>
-                            <li>Location: <%= event.location %>
-                            </li>
-                            <li>Type of event: <%= event.eventType %>
-                            </li>
-                        </ul>
-                    </div>
-                <% }) %>
-            <% } %>
-      <%- include('../partials/footer.ejs') %> 
-    </body>
+    <% if (comEvent.length > 0) { %>
+        <div class="event-preview-container">
+            <% comEvent.forEach(event => { %>
+                <div class="rounded-shadow-box">
+                    <h2><%= event.title %></h2>
+                    <img src="<%= event.image %>" alt="<%= event.title %>">
+                        <div class="event-details">
+                            <div class="event-info-div"><strong>Date</strong>: <%= event.date %></div>
+                            <div class="event-info-div"><strong>Location</strong>: <%= event.location %></div>
+                            <div class="event-info-div"><strong>Type of event</strong>: <%= event.eventType %></div>
+                        </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+
+    <%- include('../partials/footer.ejs') %> 
+</body>
 </html>
+
 

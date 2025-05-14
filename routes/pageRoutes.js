@@ -82,7 +82,7 @@ const comEvents = [ {
     title: "Springbok Rugby Test Match",
     date: "2025-08-25",
     location: "Port Elizabeth, Eastern Cape",
-    image: "Springrtm",
+    image: "/images/Springrtm.jpeg",
     eventType: "Sport"
   },
   {
