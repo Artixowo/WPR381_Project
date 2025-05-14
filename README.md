@@ -9,7 +9,7 @@ The portal allows visitors to:
 - View upcoming events (Events)
 - Submit a contact form (Contact → Thank You)
 
-All form submissions are stored in an in-memory array for demonstration purposes.
+Contact form submissions are stored in a JSON file using Node's built-in fs module. This allows the data to persist between server restarts.
 
 ## ⚙️ Technologies Used
 
