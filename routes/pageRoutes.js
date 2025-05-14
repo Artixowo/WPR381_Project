@@ -157,8 +157,8 @@ const team = [
   {
     name: "Matthew Harris",
     role: "Backend Developer",
-    bio: "Pending",
-    image: "/images/Matthew.jpg"
+    bio: "Oh yeah",
+    image: "/images/Matthew.png"
   }
 ];
 
