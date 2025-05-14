@@ -139,7 +139,7 @@ const team = [
   {
     name: "Trent Evans",
     role: "Frontend Developer",
-    bio: "Pending",
+    bio: "Lekka bru",
     image: "/images/Trent.jpg"
   },
   {
